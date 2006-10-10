@@ -1,0 +1,15 @@
+#!/usr/bin/perl
+
+#
+# Make hyperlinks active
+#
+
+while (<STDIN>)
+{
+    s/\f//g;
+    s/&/&amp;/g;
+    s/</&lt;/g;
+    s/>/&gt;/g;
+    s/((http|ftp):\/\/[A-Za-z0-9_\.\-\/\#\?\=\~\;\&]+)/<a href="$&">$&<\/a>/g;
+    print;
+}

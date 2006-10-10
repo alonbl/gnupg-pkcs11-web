@@ -1,0 +1,40 @@
+#!/bin/sh
+
+die() {
+	local m="$1"
+
+	echo "${m}" >&2
+	exit 1
+}
+
+if [ -z "${GNUPG_PKCS11_VERSION}" ]; then
+	die "You must source the vars file first to set parameters"
+fi
+
+if [ -z "${SRC}" -o -z "${DEST}" ]; then
+	die "You must source the vars file first to set parameters"
+fi
+
+cd "${SRC}"
+
+dom4="m4"
+for m in ${MACROS}; do
+	eval val=\$${m}
+	dom4="${dom4} --define=$m=\"${val}\""
+done
+
+html_exclude="defs.html"
+
+rm -fr "${DEST}"
+mkdir "${DEST}"
+
+for file in *.html; do
+	if ! echo "${html_exclude}" | grep "${file}" > /dev/null; then
+		$dom4 "${file}" > "${DEST}/${file}"
+	fi
+done
+
+mkdir "${DEST}/images"
+cp images/* "${DEST}"
+
+exit 0

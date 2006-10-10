@@ -1,5 +1,5 @@
 export DEST="/tmp/web"
-export SRC="$(dirname $0)"
+export SRC="$(pwd)"
 export GNUPG_PKCS11_VERSION="0.01"
 export SOURCES="../gnupg-pkcs11-scd"
 export MAN2HTML=man2html

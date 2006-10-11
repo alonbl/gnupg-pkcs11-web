@@ -1,6 +1,5 @@
 export DEST="/tmp/gnupg-pkcs11-web-htdocs"
 export SRC="$(pwd)"
-export GNUPG_PKCS11_VERSION="0.01"
 export SOURCES="../../gnupg-pkcs11-scd/trunk"
 export MAN2HTML=man2html
 

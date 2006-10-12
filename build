@@ -24,7 +24,7 @@ html_exclude="defs.html"
 rm -fr "${DEST}"
 mkdir "${DEST}"
 
-for file in *.html; do
+for file in *.html *.xml; do
 	if ! echo "${html_exclude}" | grep "${file}" > /dev/null; then
 		$dom4 "${file}" > "${DEST}/${file}"
 	fi

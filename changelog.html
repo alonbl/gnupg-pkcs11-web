@@ -1,4 +1,9 @@
-include(defs.html)
-my_header([[gnupg-pkcs11 ChangeLog]])
-my_file(SOURCES[[/ChangeLog]])
-my_footer()
+include(common.m4)
+include([[template.html]])
+dnl
+__page(
+	[[gnupg-pkcs11 ChangeLog]],
+	[[
+__file(SOURCES[[/ChangeLog]])
+	]]
+)

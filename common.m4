@@ -23,24 +23,28 @@ define([[__url]], [[patsubst($1,
   [[\(http://\|ftp://\)\([-a-zA-Z0-9_%~&/#.]+\)]],
   [[<a href="\1\2">\1\2</a>]])]])
 dnl
-dnl Convert plaintext to HTML. Escapes &<> and activates URLs.
-dnl
-define([[__plaintext]], [[__url(__escape($1))]])
-dnl
 dnl Ordered and unordered lists. Note: if any list item contains literal comma,
 dnl the whole item should be quoted (else the comma is interpreted to introduce
 dnl next macro argument).
 dnl
-define([[__liloop]], [[ifelse([[$1]],,,
-[[<li>$1</li>
-__liloop(__shift($@))]])]])
+define(
+	[[__liloop]],
+	[[
+		ifelse(
+			[[$1]],,,
+			[[
+				<li>$1</li>
+				__liloop(__shift($@))
+			]]
+		)
+	]]
+)
 dnl
-define([[__ul]],[[
-<ul>
-__liloop($@)
-</ul>]])
+define([[__ul]],[[<ul>__liloop($@)</ul>]])
 dnl
-define([[__ol]],[[
-<ol>
-__liloop($@)
-</ol>]])
+define([[__ol]],[[<ol>__liloop($@)</ol>]])
+dnl
+dnl Insert file
+dnl
+define([[__file]], [[<pre>esyscmd([[scripts/text2html < "$1"]])</pre>]])
+

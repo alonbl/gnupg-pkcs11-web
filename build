@@ -19,7 +19,7 @@ for m in ${MACROS}; do
 	dom4="${dom4} --define=$m=\"${val}\""
 done
 
-html_exclude="defs.html"
+html_exclude="template.html"
 
 rm -fr "${DEST}"
 mkdir "${DEST}"

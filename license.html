@@ -1,5 +1,10 @@
-include(defs.html)
-my_header([[gnupg-pkcs11 License]])
+include(common.m4)
+include([[template.html]])
+dnl
+__page(
+	[[gnupg-pkcs11 License]],
+	[[
 <h2>COPYING</h2>
-my_file(SOURCES[[/COPYING]])
-my_footer()
+__file(SOURCES[[/COPYING]])
+	]]
+)

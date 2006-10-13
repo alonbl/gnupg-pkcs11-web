@@ -1,8 +1,11 @@
-my_sidebar([[Home]], [[index.html]])
-my_sidebar([[Downloads]], [[http://sourceforge.net/project/showfiles.php?group_id=179439]])
-my_sidebar([[Project Page]], [[http://sourceforge.net/projects/gnupg-pkcs11]])
-my_sidebar([[Change Log]], [[changelog.html]])
-my_sidebar([[Man Page]], [[man.html]])
-my_sidebar([[Support]], [[support.html]])
-my_sidebar([[Source]], [[http://svn.sourceforge.net/viewvc/gnupg-pkcs11]])
-my_sidebar([[License]], [[license.html]])
+define(__sidebar_item,[[<a href="$2">$1</a>]])
+__ul(
+	__sidebar_item([[Home]], [[index.html]]),
+	__sidebar_item([[Downloads]], [[http://sourceforge.net/project/showfiles.php?group_id=179439]]),
+	__sidebar_item([[Project Page]], [[http://sourceforge.net/projects/gnupg-pkcs11]]),
+	__sidebar_item([[Change Log]], [[changelog.html]]),
+	__sidebar_item([[Man Page]], [[man.html]]),
+	__sidebar_item([[Support]], [[support.html]]),
+	__sidebar_item([[Source]], [[http://svn.sourceforge.net/viewvc/gnupg-pkcs11]]),
+	__sidebar_item([[License]], [[license.html]]),
+)

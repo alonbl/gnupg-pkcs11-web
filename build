@@ -26,7 +26,9 @@ mkdir "${DEST}"
 
 for file in *.html *.xml; do
 	if ! echo "${html_exclude}" | grep "${file}" > /dev/null; then
-		$dom4 "${file}" > "${DEST}/${file}"
+		if ! $dom4 "${file}" > "${DEST}/${file}"; then
+			die "Cannot generate html"
+		fi
 	fi
 done
 

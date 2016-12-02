@@ -1,6 +1,6 @@
 export DEST="/tmp/gnupg-pkcs11-web-htdocs"
 export SRC="$(pwd)"
-export SOURCES="../../gnupg-pkcs11-scd/trunk"
+export SOURCES="../../gnupg-pkcs11-scd"
 export MAN2HTML=man2html
 
 export MACROS="
